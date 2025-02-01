@@ -1,0 +1,48 @@
+server_configurations:
+
+  # Database APIs
+  authentication_url: http://127.0.0.1:5000/oauth/token
+  username: test
+  password: pw
+  client_id: 1x2y
+  load_visitor_url: http://127.0.0.1:5000/visitor/sync
+  load_cam_url: http://127.0.0.1:5000/cameras/sync
+  post_visitor_url: http://127.0.0.1:5000/visitor/identify
+  cam_offline_url: http://127.0.0.1:5000/cameras/{}/offline
+
+
+# Don't Change the following parameters unless you know what it means
+
+hyper_params:
+
+  # hyper parameters for controlling feature tracker
+  feature_tracker:
+    min_frames_appeared_to_validate : 5
+    max_frames_disappeared_to_discard : 30
+    validation_window_size: 5
+    matching_cos_threshold: 0.9
+
+  # hyper parameters corresponding to face recognition model
+  fr_model:
+    path: model/arc_res50.pth
+    threshold: 0.55
+    guess_threshold: 0.45
+
+  # hyper parameters to tune face detection model
+  fd_model:
+    path: model/
+    min_detection_size: 60
+
+  # hyper parameters to manage local records
+  local_record:
+    stack_size: 15
+    rerecord_ignore_time_seconds: 5
+
+  # additional daily buffer room for adding new users
+  user_record_buffer: 100
+
+debug_params:
+  # bool value to print to terminal run time of each step
+  run_time_print: False
+  # bool value to print API access response status
+  api_access_print: False

@@ -1,0 +1,17 @@
+ls | cat -n | while read n f; do mv "$f" "DL_NEW_BACK_color_$n.jpg"; done
+#rename files
+
+
+mogrify -type Grayscale *.jpg
+mogrify -rotate 90 *.jpg
+mogrify -resize x240 *.png
+
+
+cp `ls | head -380` ../../../NIC_ONLY/train_dir/UNKNOWN/NIC_OLD_BACK_gray/
+
+cp DL_NEW_FRONT_{1..500}.jpg ../../../NIC_ONLY/train_dir/UNKNOWN/DL_NEW_FRONT_color/
+
+
+passwords
+cc_user123
+Yosfvi=4569
